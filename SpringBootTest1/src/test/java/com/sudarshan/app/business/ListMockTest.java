@@ -120,6 +120,8 @@ public class ListMockTest {
 	 * spying bascically is opposite to mock, it actually executed the peice of code
 	 * and
 	 * then returns response according to actual value and operation.
+	 * 
+	 * But once we start stubing the spy it responds like a mock 
 	 */
 	@Test
 	public void spying() {
@@ -131,6 +133,9 @@ public class ListMockTest {
 		arrayListSpy.add("Test2");
 		System.out.println(arrayListSpy.size());// 3
 
+		/**
+		 * from here it will act like a mock
+		 */
 		when(arrayListSpy.size()).thenReturn(5);
 		System.out.println(arrayListSpy.size());// 5
 
