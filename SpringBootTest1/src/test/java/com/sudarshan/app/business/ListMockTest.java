@@ -27,7 +27,6 @@ public class ListMockTest {
 	}
 
 	@Test
-	@Disabled
 	public void returnWithParameters() {
 		when(mock.get(0)).thenReturn("Sudarshan");
 		assertEquals("Sudarshan", mock.get(0));
