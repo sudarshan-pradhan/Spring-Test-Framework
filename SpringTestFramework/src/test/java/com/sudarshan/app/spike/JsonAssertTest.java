@@ -5,14 +5,14 @@ import org.junit.jupiter.api.Test;
 import org.skyscreamer.jsonassert.JSONAssert;
 
 public class JsonAssertTest {
-    
-    /**
-     * content().json() utilizes JSONAssert,
-     * So this class helps understanding working of JSONAssert
-     */
-    
-    String actualResponse = "{\"id\":1,\"name\":\"Ball\",\"price\":10,\"quantity\":100}";
-	
+
+	/**
+	 * content().json() utilizes JSONAssert,
+	 * So this class helps understanding working of JSONAssert
+	 */
+
+	String actualResponse = "{\"id\":1,\"name\":\"Ball\",\"price\":10,\"quantity\":100}";
+
 	@Test
 	public void jsonAssert_StrictTrue_ExactMatchExceptForSpaces() throws JSONException {
 		String expectedResponse = "{\"id\": 1, \"name\":\"Ball\", \"price\":10, \"quantity\":100}";
@@ -31,9 +31,9 @@ public class JsonAssertTest {
 		JSONAssert.assertEquals(expectedResponse, actualResponse, false);
 	}
 
-    /**
-     * For strict true, we cannot remove any Json element or any escape characters.
-     * But possible with strict false.
-     */
-    
+	/**
+	 * For strict true, we cannot remove any Json element or any escape characters.
+	 * But possible with strict false.
+	 */
+
 }

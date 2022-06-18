@@ -11,11 +11,11 @@ import com.sudarshan.app.service.ItemBusinessService;
 
 @RestController
 public class ItemController {
-    
+
 	@Autowired
 	private ItemBusinessService businessService;
-	
-    @GetMapping("/dummy-item")
+
+	@GetMapping("/dummy-item")
 	public Item dummyItem() {
 		return new Item(1, "Ball", 10, 100);
 	}
@@ -29,5 +29,5 @@ public class ItemController {
 	public List<Item> retrieveAllItems() {
 		return businessService.retrieveAllItems();
 	}
-	
+
 }

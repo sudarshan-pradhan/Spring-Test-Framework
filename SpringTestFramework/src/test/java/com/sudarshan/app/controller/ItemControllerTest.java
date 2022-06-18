@@ -47,54 +47,55 @@ public class ItemControllerTest {
 	@Test
 	public void itemFromBusinessService_basic() throws Exception {
 		when(itemBusinessService.retreiveHardcodedItem()).thenReturn(
-				new Item(2,"Item2",10,10));
-		
+				new Item(2, "Item2", 10, 10));
+
 		RequestBuilder request = MockMvcRequestBuilders
 				.get("/item-from-business-service")
 				.accept(MediaType.APPLICATION_JSON);
-		
+
 		MvcResult result = mockMvc.perform(request)
 				.andExpect(status().isOk())
 				.andExpect(content().json("{id:2,name:Item2,price:10}"))
 				.andReturn();
-		//JSONAssert.assertEquals(expected, result.getResponse().getContentAsString(), false);
-		
+		// JSONAssert.assertEquals(expected, result.getResponse().getContentAsString(),
+		// false);
+
 	}
 
 	@Test
 	public void retrieveAllItems_basic() throws Exception {
 		when(itemBusinessService.retrieveAllItems()).thenReturn(
-				Arrays.asList(new Item(2,"Item2",10,10),
-						new Item(3,"Item3",20,20))
-				);
-		
+				Arrays.asList(new Item(2, "Item2", 10, 10),
+						new Item(3, "Item3", 20, 20)));
+
 		RequestBuilder request = MockMvcRequestBuilders
 				.get("/all-items-from-database")
 				.accept(MediaType.APPLICATION_JSON);
-		
+
 		MvcResult result = mockMvc.perform(request)
 				.andExpect(status().isOk())
 				.andExpect(content().json("[{id:3,name:Item3,price:20}, {id:2,name:Item2,price:10}]"))
 				.andReturn();
-		//JSONAssert.assertEquals(expected, result.getResponse().getContentAsString(), false);
-		
+		// JSONAssert.assertEquals(expected, result.getResponse().getContentAsString(),
+		// false);
+
 	}
 
 	@Test
 	public void retrieveAllItems_noitems() throws Exception {
 		when(itemBusinessService.retrieveAllItems()).thenReturn(
-				Arrays.asList()
-				);
-		
+				Arrays.asList());
+
 		RequestBuilder request = MockMvcRequestBuilders
 				.get("/all-items-from-database")
 				.accept(MediaType.APPLICATION_JSON);
-		
+
 		MvcResult result = mockMvc.perform(request)
 				.andExpect(status().isOk())
 				.andExpect(content().json("[]"))
 				.andReturn();
-		//JSONAssert.assertEquals(expected, result.getResponse().getContentAsString(), false);
-		
+		// JSONAssert.assertEquals(expected, result.getResponse().getContentAsString(),
+		// false);
+
 	}
 }
