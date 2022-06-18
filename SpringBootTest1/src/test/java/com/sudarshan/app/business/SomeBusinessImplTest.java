@@ -5,21 +5,21 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 
 class SomeBusinessImplTest {
-    
-    @Test
+
+	@Test
 	void calculateSum_basic() {
 		SomeBusinessImpl business = new SomeBusinessImpl();
-		int actualResult = business.calculateSum(new Integer[] { 1,2,3});
+		int actualResult = business.calculateSum(new Integer[] { 1, 2, 3 });
 		int expectedResult = 6;
-		assertEquals(expectedResult, actualResult);	
+		assertEquals(expectedResult, actualResult);
 	}
 
-    @Test
+	@Test
 	void calculateSum_empty() {
 		SomeBusinessImpl business = new SomeBusinessImpl();
-		int actualResult = business.calculateSum(new Integer[] { });
+		int actualResult = business.calculateSum(new Integer[] {});
 		int expectedResult = 0;
-		assertEquals(expectedResult, actualResult);	
+		assertEquals(expectedResult, actualResult);
 	}
 
 	@Test
@@ -27,7 +27,7 @@ class SomeBusinessImplTest {
 		SomeBusinessImpl business = new SomeBusinessImpl();
 		int actualResult = business.calculateSum(new Integer[] { 5 });
 		int expectedResult = 5;
-		assertEquals(expectedResult, actualResult);	
+		assertEquals(expectedResult, actualResult);
 	}
 
 }
